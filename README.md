@@ -1,2 +1,3 @@
-# nvim
-Nvim configuration
+# Nvim Configuration 
+
+- Based on Lazyvim
