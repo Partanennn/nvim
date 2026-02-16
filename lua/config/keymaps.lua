@@ -2,11 +2,13 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
-local telescope = require("telescope.builtin")
 
 -- Easier to end and start of file
 keymap.set("n", "9", "0")
 keymap.set("n", "0", "$")
+
+keymap.set("n", "<C-d>", "<C-d>zz", opts)
+keymap.set("n", "<C-u>", "<C-u>zz", opts)
 
 -- Save file and quit
 keymap.set("n", "<Leader>w", ":udpate<Return>", opts)
@@ -40,4 +42,4 @@ keymap.set("n", "<C-S-k>", "<C-w>+")
 keymap.set("n", "<C-S-j>", "<C-w>-")
 
 -- Telescope
-keymap.set("n", "<Leader>ff", telescope.git_files)
+keymap.set("n", "<Leader>ff", require("telescope.builtin").git_files, { desc = "Telescope find git files" })
