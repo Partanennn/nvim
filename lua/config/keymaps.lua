@@ -2,6 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
+local telescope = require("telescope.builtin")
 
 -- Easier to end and start of file
 keymap.set("n", "9", "0")
@@ -37,3 +38,6 @@ keymap.set("n", "<C-S-h>", "<C-w><")
 keymap.set("n", "<C-S-l>", "<C-w>>")
 keymap.set("n", "<C-S-k>", "<C-w>+")
 keymap.set("n", "<C-S-j>", "<C-w>-")
+
+-- Telescope
+keymap.set("n", "<Leader>ff", telescope.git_files)
