@@ -1,7 +1,7 @@
 return {
   -- MASON
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "luacheck",
@@ -123,7 +123,12 @@ return {
           },
         },
       },
-      setup = {},
+      setup = {
+        tsserver = function(_, opts)
+          require("typescript").setup({ server = opts })
+          return true
+        end,
+      },
     },
   },
 }
