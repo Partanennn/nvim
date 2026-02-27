@@ -18,9 +18,9 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       inlay_hints = { enabled = true },
-      ---@type lspconfig.options
       servers = {
         cssls = {},
+        eslint = {},
         tailwindcss = {
           root_dir = function(...)
             return require("lspconfig.util").root_pattern(".git")(...)
@@ -62,6 +62,7 @@ return {
           single_file_support = true,
           settings = {
             Lua = {
+              globals = { "vim" },
               workspace = {
                 checkThirdParty = false,
               },
